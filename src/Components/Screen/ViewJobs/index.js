@@ -48,15 +48,34 @@ class ViewJob extends Component {
     });
   };
 apply= (item,index)=>{
+
  let lcData= localStorage.getItem("userData")
  let data=JSON.parse(lcData)
  let currentUser=data.userId
- 
-  const applicant={...item,currentUser}
-firebase.firestore().collection("appliedJob").add(applicant).then(res=>{
-  alert("you have succesfully apllied for this job")
+ const applicant={...item,currentUser,}
   
-}) 
+ firebase.firestore().collection('appliedJob').get().then(data=>{
+   data.forEach(docs=>{
+     console.log(docs.data())
+     for (let jobs in docs.data()){
+       if(item.jobId==docs.data()[jobs]){
+         console.log('you have already apply for this job')
+       }
+       else{
+        const applicant={...item,currentUser,}
+        firebase.firestore().collection("appliedJob").add(applicant).then(res=>{
+          alert("you have succesfully apllied for this job")
+          
+        })
+    
+       }
+    
+     }
+   })
+ })
+
+ 
+
 }
   render() {
     const { PostedJob, searchlist, searchFlag } = this.state;

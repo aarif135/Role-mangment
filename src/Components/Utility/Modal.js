@@ -76,12 +76,14 @@ class Example extends Component {
     e.preventDefault();
     const userId = this.props.user.userId;
     const { tittle, descripttion, Designation, salary } = this.state;
+    let jobId=userId+"_"+Date.now()
     const detail = {
       tittle,
       descripttion,
       Designation,
       salary,
       userId,
+      jobId
     };
     firebase
       .firestore()
