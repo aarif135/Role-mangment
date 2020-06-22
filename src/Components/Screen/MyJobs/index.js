@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import "firebase/firestore";
 import * as firebase from "firebase/app";
 import Navbar from "../../Utility/Navbar";
+import "firebase/auth";
+
 class Myjob extends Component {
   constructor(props) {
     super(props);
@@ -40,12 +42,10 @@ class Myjob extends Component {
         let get=  localStorage.getItem('userData')
         let anonther=JSON.parse(get)
         if(anonther.userId===com.data()[detail]){
-          console.log('abc')
           companyData.push(com.data())
 
 
         }
-          // console.log(com.data()[detail])
         }
         
       })
@@ -56,13 +56,21 @@ class Myjob extends Component {
 
     })
   }
+  logout=()=>{
+
+    firebase.auth().signOut().then(()=>{
+      localStorage.removeItem('userData')
+      this.props.history.push('/login')
+    })
+  }
+
   render() {
     const { allData } = this.state;
-    console.log(allData)
 
     return (
       <div>
         <Navbar />
+        <button onClick={this.logout} style={{float:"right"}} className='btn btn-info'>LOGOUT</button>
         <h1>Company ads</h1>
         <table className="table table-hover">
           <tr>

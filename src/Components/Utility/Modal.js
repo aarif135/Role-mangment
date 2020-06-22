@@ -24,7 +24,6 @@ class Example extends Component {
   }
   componentDidMount() {
     let data = JSON.parse(localStorage.getItem("userData"));
-    console.log(data.role);
     this.setState({
       role: data.role,
     });
@@ -48,8 +47,7 @@ class Example extends Component {
       .get()
       .then((studentDetail) => {
         studentDetail.forEach((doc) => {
-          console.log(doc.data());
-          stdnDetail.push(doc.data());
+                 stdnDetail.push(doc.data());
         });
       });
     this.setState({ stdnDetail });
@@ -164,8 +162,6 @@ class Example extends Component {
         }
       }
     }
-    console.log(btn);
-
     return (
       <>
         {role === 20 ? (

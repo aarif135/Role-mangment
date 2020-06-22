@@ -5,6 +5,8 @@ import Css from "../../../App.css";
 import { compose } from "redux";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import "firebase/auth";
+import { withRouter } from "react-router-dom";
 
 class StudentData extends Component {
   constructor(props) {
@@ -43,13 +45,15 @@ class StudentData extends Component {
         });
       });
   }
-  abc = (e) => {
-    console.log(e.target);
-  };
+  logout=()=>{
 
+    firebase.auth().signOut().then(()=>{
+      localStorage.removeItem('userData')
+      this.props.history.push('/login')
+    })
+  }
   render() {
     const { studentInfo } = this.state;
-    console.log(studentInfo.length !== 0);
     return (
       <div
         className={studentInfo.length !== 0 ? "card-div" : "card-ex"}
@@ -58,6 +62,8 @@ class StudentData extends Component {
         <NavBar />
         <div style={{ backgroundColor: "lightgrey", width: "100%" }}>
           <h1 style={{ textAlign: "center", border: "solid black 2px" }}>
+          <button style={{float:'right'}} onClick={this.logout} className='btn btn-info'>LOGOUT</button>
+
             Student Information
           </h1>
         </div>
@@ -121,4 +127,4 @@ class StudentData extends Component {
     );
   }
 }
-export default StudentData;
+export default withRouter(StudentData);

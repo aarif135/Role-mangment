@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import NavBar from "../../Utility/Navbar";
 import * as firebase from "firebase/app";
+import "firebase/auth";
+import { withRouter } from "react-router-dom";
+
 
 class ViewJob extends Component {
   state = {
     PostedJob: [],
     searchlist: [],
     searchFlag: false,
+    appliedJob: []
   };
   componentDidMount() {
     var firebaseConfig = {
@@ -35,56 +39,47 @@ class ViewJob extends Component {
           PostedJob,
         });
       });
+
+
+
+
+
   }
   search = (e) => {
     const { PostedJob } = this.state;
     let searchlist = PostedJob.filter((index) => {
       return index.tittle.includes(e.target.value.toLowerCase()) == true;
     });
-    console.log(searchlist);
     this.setState({
       searchlist,
       searchFlag: true,
     });
   };
-apply= (item,index)=>{
+  apply = (item, index) => {
 
- let lcData= localStorage.getItem("userData")
- let data=JSON.parse(lcData)
- let currentUser=data.userId
- const applicant={...item,currentUser,}
-  
- firebase.firestore().collection('appliedJob').get().then(data=>{
-   data.forEach(docs=>{
-     console.log(docs.data())
-     for (let jobs in docs.data()){
-       if(item.jobId==docs.data()[jobs]){
-         console.log('you have already apply for this job')
-       }
-       else{
-        const applicant={...item,currentUser,}
-        firebase.firestore().collection("appliedJob").add(applicant).then(res=>{
-          alert("you have succesfully apllied for this job")
-          
-        })
-    
-       }
-    
-     }
-   })
- })
 
- 
+    let lcData = localStorage.getItem("userData")
+    let data = JSON.parse(lcData)
+    let currentUser = data.userId
+    const applicant = { ...item, currentUser, }
 
-}
+
+  }
+  logout = () => {
+
+    firebase.auth().signOut().then(() => {
+      localStorage.removeItem('userData')
+      this.props.history.push('/login')
+    })
+  }
   render() {
     const { PostedJob, searchlist, searchFlag } = this.state;
-    console.log(PostedJob);
 
     return (
       <div style={{ background: "lightblue" }}>
         <NavBar />
         <div style={{ backgroundColor: "lightgrey", width: "100%" }}>
+        <button className='btn btn-info' onClick={this.logout} style={{float:"right"}}>LOGOUT</button>
           <p
             className="display-4"
             style={{
@@ -109,93 +104,93 @@ apply= (item,index)=>{
         </div>
         <div className="row container-fluid">
           {searchFlag
-            ? searchlist.map((item,index) => {
-                return (
-                  <div
-                    className="col-md-5"
+            ? searchlist.map((item, index) => {
+              return (
+                <div
+                  className="col-md-5"
+                  style={{
+                    boxShadow: "1px 1px 1px 1px grey",
+                    marginLeft: "50px",
+                    height: "13rem",
+                    background: "white",
+                    marginTop: "15px",
+                  }}
+                >
+                  <p
+                    className="display-4"
                     style={{
-                      boxShadow: "1px 1px 1px 1px grey",
-                      marginLeft: "50px",
-                      height: "13rem",
-                      background: "white",
-                      marginTop: "15px",
+                      fontWeight: "bold",
+                      textTransform: "capitalize",
+                      textAlign: "center",
                     }}
                   >
-                    <p
-                      className="display-4"
-                      style={{
-                        fontWeight: "bold",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                      }}
-                    >
-                      {item.tittle}
-                    </p>
-                    <table>
-                      <tr style={{ fontWeight: "bold" }}>
-                        Designation :<td>{item.Designation}</td>
-                      </tr>
-                      <tr style={{ fontWeight: "bold", textAlign: "center" }}>
-                        DESCRIPTION :<td>{item.descripttion}</td>
-                      </tr>
-                      <tr style={{ fontWeight: "bold", textAlign: "center" }}>
-                        SALARY:
+                    {item.tittle}
+                  </p>
+                  <table>
+                    <tr style={{ fontWeight: "bold" }}>
+                      Designation :<td>{item.Designation}</td>
+                    </tr>
+                    <tr style={{ fontWeight: "bold", textAlign: "center" }}>
+                      DESCRIPTION :<td>{item.descripttion}</td>
+                    </tr>
+                    <tr style={{ fontWeight: "bold", textAlign: "center" }}>
+                      SALARY:
                         <td>{item.salary}</td>
-                      </tr>
-                      <tr style={{ textAlign: "center" }}>
-                        {" "}
-                        <button
-                          onClick={()=>this.apply(item,index)}
-                          className="btn btn-success"
-                        >
-                          APPLY
+                    </tr>
+                    <tr style={{ textAlign: "center" }}>
+                      {" "}
+                      <button
+                        onClick={() => this.apply(item, index)}
+                        className="btn btn-success"
+                      >
+                        APPLY
                         </button>
-                      </tr>
-                    </table>
-                  </div>
-                );
-              })
-            : PostedJob.map((item,index) => {
-                return (
-                  <div
-                    className="col-md-5"
+                    </tr>
+                  </table>
+                </div>
+              );
+            })
+            : PostedJob.map((item, index) => {
+              return (
+                <div
+                  className="col-md-5"
+                  style={{
+                    boxShadow: "1px 1px 1px 1px grey",
+                    marginLeft: "50px",
+                    height: "13rem",
+                    background: "white",
+                    marginTop: "15px",
+                  }}
+                >
+                  <p
+                    className="display-4"
                     style={{
-                      boxShadow: "1px 1px 1px 1px grey",
-                      marginLeft: "50px",
-                      height: "13rem",
-                      background: "white",
-                      marginTop: "15px",
+                      fontWeight: "bold",
+                      textTransform: "capitalize",
+                      textAlign: "center",
                     }}
                   >
-                    <p
-                      className="display-4"
-                      style={{
-                        fontWeight: "bold",
-                        textTransform: "capitalize",
-                        textAlign: "center",
-                      }}
-                    >
-                      {item.tittle}
-                    </p>
-                    <table>
-                      <tr style={{ fontWeight: "bold" }}>
-                        Designation :<td>{item.Designation}</td>
-                      </tr>
-                      <tr style={{ fontWeight: "bold", textAlign: "center" }}>
-                        DESCRIPTION :<td>{item.descripttion}</td>
-                      </tr>
-                      <tr style={{ fontWeight: "bold", textAlign: "center" }}>
-                        SALARY:
+                    {item.tittle}
+                  </p>
+                  <table>
+                    <tr style={{ fontWeight: "bold" }}>
+                      Designation :<td>{item.Designation}</td>
+                    </tr>
+                    <tr style={{ fontWeight: "bold", textAlign: "center" }}>
+                      DESCRIPTION :<td>{item.descripttion}</td>
+                    </tr>
+                    <tr style={{ fontWeight: "bold", textAlign: "center" }}>
+                      SALARY:
                         <td>{item.salary}</td>
 
-                      </tr>
-                    <tr style={{display:'none'}}><td>{item.userId}</td></tr>
-                      <button onClick={()=>this.apply(item,index)} className="btn btn-success">APPLY</button>
+                    </tr>
+                    <tr style={{ display: 'none' }}><td>{item.userId}</td></tr>
+                    <button onClick={() => this.apply(item, index)} className="btn btn-success">APPLY</button>
 
-                    </table>
-                  </div>
-                );
-              })}
+                  </table>
+                </div>
+              );
+            })}
 
           {/*             
             {PostedJob.map((item)=>{
@@ -225,4 +220,4 @@ apply= (item,index)=>{
     );
   }
 }
-export default ViewJob;
+export default withRouter(ViewJob);

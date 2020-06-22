@@ -62,7 +62,6 @@ class SignUp extends Component {
         const info = {
             userName, email, selectedValue, val
         }
-        console.log(info)
 
         firebase.auth().createUserWithEmailAndPassword(email, password).then(res => {
 
@@ -93,11 +92,16 @@ class SignUp extends Component {
 
 
         return (
-            <div style={{ height: "100vh", overflowY: "hidden" }}>
+            <div style={{ height: "100vh" }}>
+                <div className='row'>
+                    <div className='col-12'>
+
                 <NavBar />
-                <div style={{ width: 'fit-content', marginTop: '2rem', marginLeft: "3rem", padding: '4rem', boxShadow: "1px 1px 1px 2px grey", }}>
+                    </div>
+                </div>
+                <div style={{display:'flex',alignItems:'center',justifyContent:'center',margin:'2rem'}} >
+                    <div style={{width:'fit-content',padding:"1rem" ,border:"solid black 0.5px",boxShadow:"2px 2px 2px 3px lightgrey"}} >
                     <h1 style={{ textAlign: 'center' }}>REGISTRATION</h1>
-                    <div >
                         <div className='row'>
                             <div className='col-sm-12 col-lg-12 col-xs-12 col-md-12  '>
                                 <p>User Name</p>

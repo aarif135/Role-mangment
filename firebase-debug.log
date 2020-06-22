@@ -1,0 +1,107 @@
+[debug] [2020-06-21T18:28:47.986Z] ----------------------------------------------------------------------
+[debug] [2020-06-21T18:28:47.990Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DELL\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-06-21T18:28:47.990Z] CLI Version:   8.4.2
+[debug] [2020-06-21T18:28:47.991Z] Platform:      win32
+[debug] [2020-06-21T18:28:47.991Z] Node Version:  v12.18.0
+[debug] [2020-06-21T18:28:47.992Z] Time:          Sun Jun 21 2020 23:28:47 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-06-21T18:28:47.993Z] ----------------------------------------------------------------------
+[debug] [2020-06-21T18:28:47.993Z] 
+[debug] [2020-06-21T18:28:48.007Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-21T18:28:48.008Z] > authorizing via signed-in user
+[debug] [2020-06-21T18:28:48.008Z] [iam] checking project owais-1d9f6 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-06-21T18:28:48.014Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/owais-1d9f6:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-06-21T18:29:09.140Z] [iam] error while checking permissions, command may fail: FirebaseError: Server Error. connect ETIMEDOUT 216.58.208.234:443
+[debug] [2020-06-21T18:29:09.142Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/owais-1d9f6  
+ 
+[debug] [2020-06-21T18:29:30.149Z] Server Error. connect ETIMEDOUT 172.217.19.170:443
+[debug] [2020-06-21T18:29:51.238Z] FirebaseError: Server Error. connect ETIMEDOUT 172.217.19.170:443
+    at Request._callback (C:\Users\DELL\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:32:31)
+    at self.callback (C:\Users\DELL\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at Request.emit (events.js:315:20)
+    at Request.EventEmitter.emit (domain.js:482:12)
+    at Request.onRequestError (C:\Users\DELL\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:877:8)
+    at ClientRequest.emit (events.js:327:22)
+    at ClientRequest.EventEmitter.emit (domain.js:482:12)
+    at TLSSocket.socketErrorListener (_http_client.js:426:9)
+    at TLSSocket.emit (events.js:315:20)
+    at TLSSocket.EventEmitter.emit (domain.js:482:12)
+    at emitErrorNT (internal/streams/destroy.js:92:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:60:3)
+    at processTicksAndRejections (internal/process/task_queues.js:84:21)
+[error] 
+[error] Error: Failed to get Firebase project owais-1d9f6. Please make sure the project exists and your account has permission to access it.
+[debug] [2020-06-21T18:44:25.964Z] ----------------------------------------------------------------------
+[debug] [2020-06-21T18:44:25.975Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DELL\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-06-21T18:44:25.975Z] CLI Version:   8.4.2
+[debug] [2020-06-21T18:44:25.976Z] Platform:      win32
+[debug] [2020-06-21T18:44:25.976Z] Node Version:  v12.18.0
+[debug] [2020-06-21T18:44:26.054Z] Time:          Sun Jun 21 2020 23:44:25 GMT+0500 (Pakistan Standard Time)
+[debug] [2020-06-21T18:44:26.054Z] ----------------------------------------------------------------------
+[debug] [2020-06-21T18:44:26.054Z] 
+[debug] [2020-06-21T18:44:26.106Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-06-21T18:44:26.107Z] > authorizing via signed-in user
+[debug] [2020-06-21T18:44:26.107Z] [iam] checking project owais-1d9f6 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-06-21T18:44:26.112Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/owais-1d9f6:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-06-21T18:44:27.980Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 21 Jun 2020 18:44:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1233","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-21T18:44:27.983Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/owais-1d9f6  
+ 
+[debug] [2020-06-21T18:44:28.620Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 21 Jun 2020 18:44:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'owais-1d9f6'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-06-21T18:44:28.652Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/owais-1d9f6/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-06-21T18:44:30.783Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 21 Jun 2020 18:44:29 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[owais-1d9f6]: beginning deploy... 
+[info] i  hosting[owais-1d9f6]: found 20 files in build 
+[debug] [2020-06-21T18:44:31.491Z] [hosting] hash cache [YnVpbGQ] stored for 20 files
+[debug] [2020-06-21T18:44:31.492Z] [hosting][hash queue][FINAL] {"max":668,"min":6,"avg":75.2,"active":0,"complete":20,"success":20,"errored":0,"retried":0,"total":20,"elapsed":680}
+[debug] [2020-06-21T18:44:31.492Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/owais-1d9f6/versions/60d06ea1aef32584:populateFiles  
+ <request body omitted>
+[debug] [2020-06-21T18:44:33.147Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 21 Jun 2020 18:44:31 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-21T18:44:33.165Z] [hosting][populate queue][FINAL] {"max":1664,"min":1664,"avg":1664,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1675}
+[debug] [2020-06-21T18:44:33.165Z] [hosting] uploads queued: 6
+[debug] [2020-06-21T18:44:35.248Z] [hosting][upload queue][FINAL] {"max":2095,"min":2048,"avg":2068.8333333333335,"active":0,"complete":6,"success":6,"errored":0,"retried":0,"total":6,"elapsed":2098}
+[info] +  hosting[owais-1d9f6]: file upload complete 
+[debug] [2020-06-21T18:44:35.249Z] [hosting] deploy completed after 4460ms
+[debug] [2020-06-21T18:44:35.832Z] [
+  {
+    "config": {
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "owais-1d9f6"
+    },
+    "site": "owais-1d9f6",
+    "version": "sites/owais-1d9f6/versions/60d06ea1aef32584"
+  }
+]
+[info] i  hosting[owais-1d9f6]: finalizing version... 
+[debug] [2020-06-21T18:44:35.837Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/owais-1d9f6/versions/60d06ea1aef32584?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2020-06-21T18:44:37.523Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 21 Jun 2020 18:44:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-21T18:44:37.526Z] [hosting] finalized version for owais-1d9f6: {"name":"sites/owais-1d9f6/versions/60d06ea1aef32584","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2020-06-21T18:44:28.741821Z","createUser":{"email":"aarifahmad135@gmail.com"},"finalizeTime":"2020-06-21T18:44:35.948230Z","finalizeUser":{"email":"aarifahmad135@gmail.com"}}
+[info] +  hosting[owais-1d9f6]: version finalized 
+[info] i  hosting[owais-1d9f6]: releasing new version... 
+[debug] [2020-06-21T18:44:37.534Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/owais-1d9f6/releases?version_name=sites/owais-1d9f6/versions/60d06ea1aef32584  
+ {"message":null}
+[debug] [2020-06-21T18:44:38.978Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 21 Jun 2020 18:44:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-28=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-06-21T18:44:38.980Z] [hosting] release: {"name":"sites/owais-1d9f6/releases/1592765077413091","version":{"name":"sites/owais-1d9f6/versions/60d06ea1aef32584","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}},"type":"DEPLOY","releaseTime":"2020-06-21T18:44:37Z"}
+[info] +  hosting[owais-1d9f6]: release complete 
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/owais-1d9f6/overview
+[info] Hosting URL: https://owais-1d9f6.web.app

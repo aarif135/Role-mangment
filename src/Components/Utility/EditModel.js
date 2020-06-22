@@ -28,7 +28,6 @@ class EditModal extends Component {
   }
   componentDidMount() {
     let data = JSON.parse(localStorage.getItem("userData"));
-    console.log(data.role);
     this.setState({
       role: data.role,
     });
@@ -56,12 +55,11 @@ class EditModal extends Component {
                 let get=  localStorage.getItem('userData')
                 let anonther=JSON.parse(get)
                 if(anonther.userId===doc.data()[detail]){
-                  console.log('abc')
-                  stdnDetail.push(doc.data())
+                           stdnDetail.push(doc.data())
         
         
                 }
-                  // console.log(com.data()[detail])
+                  // l])
                 }
         });
         
@@ -153,7 +151,6 @@ class EditModal extends Component {
 
   render() {
     const { smShow, role, stdnDetail,email,qualification,name } = this.state;
-    console.log(stdnDetail)
     // let loc = JSON.parse(localStorage.getItem("userData"));
 
     
@@ -161,7 +158,7 @@ class EditModal extends Component {
     //     for (let inner in stdnDetail[des]) {
     //       if (stdnDetail[des][inner] ==loc.email) {
      
-    //         console.log(stdnDetail[des][inner] )
+    //         inner] )
     //       }
     //     }
     //   }

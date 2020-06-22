@@ -41,9 +41,8 @@ class SignIn extends Component {
         const { data1 } = this.state;
         data.forEach((doc) => {
           for (let value in doc.data()) {
-            // console.log(doc.data()[value]===10)
             if (doc.data()[value]===20) {
-              console.log(doc.data()[value])
+            
               data1.push(doc.data());
             }
           }
@@ -73,16 +72,13 @@ class SignIn extends Component {
         const user = res.user;
         let role=10
         for (let value in data1) {
-          console.log(data1[value])
           for (let val in data1[value]){
-            console.log(data1[value][val])
             if(data1[value][val]===email){
               role=20  
             }
           }
           
         }
-        console.log(role)
 
         let userObj = { email: user.email, userId: user.uid,role };
         this.setState({
@@ -127,13 +123,12 @@ class SignIn extends Component {
     this.props.history.push("/Signup");
   };
   render() {
-    console.log(this.state.data1)
     return (
-      <div className='container'>
+      <div >
         <NavBar/>
-        <div style={{border:"solid grey 1px ",margin:"auto",marginTop:"5rem" ,width:"fit-content",padding:"4rem",boxShadow:'1px 1px 7px grey'}}>
+        <div style={{border:"solid grey 1px ",margin:"auto",marginTop:"3rem" ,width:"fit-content",padding:"1.8rem",boxShadow:'1px 1px 7px grey'}}>
         <h1 style={{ textAlign: "center" }}>SIGN IN</h1>
-        <div >
+        <div  >
           <div className="row" style={{ marginTop: "2rem " }}>
             <div className="col-sm-12 col-lg-12 col-12 col-md-12">
               <p>Email</p>
