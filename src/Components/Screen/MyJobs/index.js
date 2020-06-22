@@ -68,28 +68,29 @@ class Myjob extends Component {
     const { allData } = this.state;
 
     return (
-      <div>
+      <div style={{overflowX:'hidden'}}>
         <Navbar />
         <button onClick={this.logout} style={{float:"right"}} className='btn btn-info'>LOGOUT</button>
-        <h1>Company ads</h1>
-        <table className="table table-hover">
-          <tr>
-            <th>JOB TITLE</th>
-            <th>JOB DESIGNATION</th>
-            <th>JOB DESCRIPTION</th>
-            <th>SALARY</th>
-          </tr>
-          {allData.map((item) => {  
-            return (
-              <tr>
-                <td>{item.tittle}</td>
-            <tr>{item.Designation}</tr>
-                <td>{item.descripttion}</td>
-                <td>{item.salary}</td>
-              </tr>
-            );
-          })}
-        </table>
+        <div className='row'>
+      <div className="col-lg-12 col-sm-12 col-sm-12 col-sm-12">
+        
+      <h2 style={{textAlign:'center'}}>COMPANY ADS</h2>
+      </div>
+        </div>
+      <div className='row'> 
+       {allData.map((item,index)=>{
+         return <div style={{marginTop:"2rem"}}  className='container col-md-4 col-lg-3 col-sm-6 col-12'>
+           <div className='container' style={{border:"solid black 1px"}}>
+       <h1 style={{textAlign:'center'}}>  {`JOB # ${index+1}`}</h1>
+       <p  style={{textAlign:'center'}}>  {item.tittle}</p>
+       <p  style={{textAlign:'center'}}>  {item.description}</p>
+       <p  style={{textAlign:'center'}}>  {item.salary}</p>
+       <p  style={{textAlign:'center'}}>  {item.Designation}</p>
+         </div>
+         </div>
+       })}
+
+      </div>
       </div>
     );
   }
