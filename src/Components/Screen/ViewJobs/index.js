@@ -3,6 +3,7 @@ import NavBar from "../../Utility/Navbar";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { withRouter } from "react-router-dom";
+import Css from '../../../App.css'
 
 
 class ViewJob extends Component {
@@ -69,7 +70,6 @@ class ViewJob extends Component {
         for(let inner in docs.data()){
           if(item.jobId==docs.data()[inner]){
             flage=true
-            console.log(flage)
           }
         }
       })
@@ -96,7 +96,12 @@ class ViewJob extends Component {
     const { PostedJob, searchlist, searchFlag } = this.state;
 
     return (
-      <div style={{ background: "lightblue" }}>
+      <div   className={PostedJob.length !== 0 ? "card-div" : "card-ex"}
+      
+      
+         style={{ overflow: "hidden", background:PostedJob==0?"white":'',height:'100vh'}}
+      
+      >
         <NavBar />
         <div style={{ backgroundColor: "lightgrey", width: "100%" }}>
         <button className='btn btn-info' onClick={this.logout} style={{float:"right"}}>LOGOUT</button>
