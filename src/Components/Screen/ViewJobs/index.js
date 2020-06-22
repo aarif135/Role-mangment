@@ -60,10 +60,30 @@ class ViewJob extends Component {
 
     let lcData = localStorage.getItem("userData")
     let data = JSON.parse(lcData)
-    let currentUser = data.userId
-    const applicant = { ...item, currentUser, }
-
-
+    
+    const applicant = { ...item, data }
+  
+    firebase.firestore().collection('appliedJobs').get().then(data=>{
+      let flage=false
+      data.forEach(docs=>{
+        for(let inner in docs.data()){
+          if(item.jobId==docs.data()[inner]){
+            flage=true
+            console.log(flage)
+          }
+        }
+      })
+      if(flage==false){
+       
+          firebase.firestore().collection('appliedJobs').add(applicant).then(()=>{
+            alert('you have successFully applied')
+          })
+    
+      }else{
+        alert('you have already aplied for this job')
+      }
+   
+    })
   }
   logout = () => {
 
