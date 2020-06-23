@@ -32,7 +32,6 @@ class SignUp extends Component {
 
     Submit = () => {
 
-        this.props.history.push("/Login")
         var firebaseConfig = {
             apiKey: "AIzaSyAd7C7vZlvhY0BT3wza_lIP_YewMmywnEY",
             authDomain: "owais-1d9f6.firebaseapp.com",
@@ -64,6 +63,7 @@ class SignUp extends Component {
         }
 
         firebase.auth().createUserWithEmailAndPassword(email, password).then(res => {
+            this.props.history.push("/Login")
 
             Swal.fire({
 

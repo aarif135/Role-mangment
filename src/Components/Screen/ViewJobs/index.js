@@ -40,7 +40,7 @@ class ViewJob extends Component {
           PostedJob,
         });
       });
-
+      
 
 
 
@@ -49,7 +49,8 @@ class ViewJob extends Component {
   search = (e) => {
     const { PostedJob } = this.state;
     let searchlist = PostedJob.filter((index) => {
-      return index.tittle.includes(e.target.value.toLowerCase()) == true;
+      return index.tittle.includes(e.target.value.toUpperCase())==true
+      // return index.tittle.includes(e.target.value.toLowerCase()) == true;
     });
     this.setState({
       searchlist,
@@ -94,12 +95,12 @@ class ViewJob extends Component {
   }
   render() {
     const { PostedJob, searchlist, searchFlag } = this.state;
-
+    console.log(searchlist)
     return (
       <div   className={PostedJob.length !== 0 ? "card-div" : "card-ex"}
       
       
-         style={{ overflow: "hidden", background:PostedJob==0?"white":'',height:'100vh'}}
+         style={{  background:PostedJob==0?"white":''}}
       
       >
         <NavBar />

@@ -269,7 +269,7 @@ class Example extends Component {
                       <input
                         placeholder="Job Tittle"
                         onChange={(e) =>
-                          this.handleChange("tittle", e.target.value)
+                          this.handleChange("tittle", e.target.value.toUpperCase())
                         }
                         className="form-control"
                       />
